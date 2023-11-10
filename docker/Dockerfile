@@ -1,4 +1,4 @@
-FROM debian:bullseye
+FROM debian:bullseye-20230612-slim
 
 ENV DEBIAN_FRONTEND="noninteractive"
 ENV DISPLAY=":0.0"
@@ -16,7 +16,7 @@ RUN apt-get update && \
     wget -O /root/fakturama.deb https://files.fakturama.info/release/v2.1.3/Installer_Fakturama_linux_x64_2.1.3c.deb && \
     dpkg -i /root/fakturama.deb && \
     apt-get install -f -y --no-install-recommends && \
-    apt-get install -y libreoffice gvfs && \
+    apt-get install -y libreoffice-writer libreoffice-calc gvfs && \
     apt-get install -y --no-install-recommends libwebkit2gtk-4.0-37 && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/* && \
